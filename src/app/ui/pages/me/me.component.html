@@ -1,0 +1,84 @@
+<div class="nav-header">
+  <app-header></app-header>
+</div>
+
+<div class="nav-content">
+  <div *ngIf="pageId == '' || pageId == undefined">    
+    <div class="row dashboard_row" style="margin-top:20px; ">
+      <div class="columns small-5 text-center" style="box-shadow: 0px 0px 20px -15px;" >
+        <button [routerLink]="['/me', 'basic']"><mat-icon mat-list-icon>person</mat-icon></button><br><span> Basics</span>
+      </div>
+      <div class="columns small-5 text-center" style="box-shadow: 0px 0px 20px -15px;">
+              <button [routerLink]="['/me', 'family']"><mat-icon mat-list-icon>wc</mat-icon></button><br><span> Familienstand</span>
+      </div>
+    </div>
+
+    <div class="row dashboard_row" style="">
+      <div class="columns small-5 text-center" style="box-shadow: 0px 0px 20px -15px;">
+              <button [routerLink]="['/me', 'religion']"><mat-icon mat-list-icon>location_city</mat-icon></button><br><span> Religion</span>
+      </div>
+      <div class="columns small-5 text-center" style="box-shadow: 0px 0px 20px -15px;">
+              <button [routerLink]="['/me', 'handicap']"><mat-icon mat-list-icon>accessible</mat-icon></button><br><span> Behinderung</span>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div fxLayout="row" class="main-div" *ngIf="pageId != '' && pageId != undefined">
+    <div *ngFor="let cat of est1a.categories; let catIndex = index">
+      <!-- Category if it is selected -->
+      <mat-card *ngIf="catIndex == currentCategoryIndex">
+        <mat-card-header><h1>{{title}}</h1></mat-card-header>
+        <mat-card-subtitle>{{subTitle}}</mat-card-subtitle>
+        <mat-card-content>
+          <!-- Loop groups of a category -->
+          <div *ngFor="let g of cat.groups; let groupIndex = index">
+
+            <!-- Show groups only if they fulFill -->
+            <div *ngIf="groupIndex == currentQuestionIndex" style="width: 100%">
+
+              <!-- Loop questions of a group -->
+              <div *ngFor="let q of g.GroupedQuestions; let i = index" [style]="{'margin-bottom': i == g.GroupedQuestions.length - 1 ? '0px' : '5px' }" >
+                
+                <!-- Template for TextAnswer-->
+                <div *ngIf="isTextAnswer(q.userAnswered) && q.enabledIf.fulFills()">
+                  <app-text-question [question]="q"></app-text-question>
+                </div>
+
+                <!-- Template for NumberAnswer -->
+                <div *ngIf="isNumberAnswer(q.userAnswered) && q.enabledIf.fulFills()">
+                  <app-number-question [question]="q"></app-number-question>
+                </div>
+
+                <!-- Template for DateAnswer -->
+                <div *ngIf="isDateAnswer(q.userAnswered) && q.enabledIf.fulFills()">
+                  <app-date-question [question]="q"></app-date-question>
+                </div>
+
+                <!-- Template for CheckAnswer -->
+                <div *ngIf="isCheckAnswer(q.userAnswered) && q.enabledIf.fulFills()">
+                  <app-check-question [question]="q"></app-check-question>
+                </div>
+
+                <!-- Template for SingleSelectAnswer -->
+                <div *ngIf="isSingleSelectAnswer(q.userAnswered) && q.enabledIf.fulFills()">
+                  <app-singleselect-question [question]="q"></app-singleselect-question>
+                </div>
+              </div>                
+            </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions style="height: 36px; display: flex;justify-content: center;">
+          <button *ngIf="currentQuestionIndex > 0" mat-button style="height: 36px;" (click)="prevQuestionClicked()">Zurück</button>
+          <button mat-button style="height: 36px;" (click)="nextQuestionClicked()">Weiter</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+<div class="nav-footer">
+  <app-footer></app-footer>
+</div>

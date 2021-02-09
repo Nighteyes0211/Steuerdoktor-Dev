@@ -1,0 +1,113 @@
+@import '../../sections/header/header.component.css';
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+* {
+    box-sizing: border-box;
+    font-family: "Poppins";
+}
+
+.root {
+    max-width: 375px;
+    margin: auto;
+}
+
+.grid-container {
+    width: calc(100% - 25px);
+    padding: 0px;
+}
+
+.callout {
+    padding: 0;
+    border: none;
+}
+
+p {
+    font-family: 'arial'!important;
+    font-size: 14px;
+    letter-spacing: -0.06em;
+    margin-bottom: 6px; 
+    color: #6a6a6a;
+}
+
+.callout h3 {
+    margin-bottom: 30px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.logo-container {
+    margin-top: 83px;
+    margin-bottom: 53px;
+}
+
+img {
+    margin: auto;
+}
+
+.para-container {
+    margin-bottom: 55px;
+    padding: 0;
+}
+
+.large-12 {
+    padding: 0 !important;
+}
+
+.login-container input {
+    height: 55px !important;
+    width: 100%;
+    background-color: #f4f4f4 !important;
+    color: #525252 !important;
+    /* font-family: 'poppins' !important; */
+    font-weight: lighter !important;
+    font-size: 15pt;
+    position: relative;
+    margin-bottom: 30px !important;
+    padding-left: 47px;
+}
+
+.login-container input::placeholder {
+    /* font-family: 'poppins' !important; */
+    font-weight: lighter !important;
+    color: #525252 !important;
+    font-size: 15pt;
+}
+
+.login-container .input-container {
+    position: relative;
+}
+
+.login-container img {
+    position: absolute;
+    top: 17px;
+    left: 13px;
+    z-index: 1;
+}
+
+.button {
+    width: 137px;
+    height: 55px;
+    /* font-family: 'poppins' !important; */
+    font-size: 17px;
+    padding: 1em 1em !important;
+    background-color: #11487c;
+    margin: 0 0;
+}
+
+.success {
+    background-color: white !important;
+    box-shadow: gray 0 0 20px -8px;
+}
+
+.button-container {
+    padding: 20px 4% !important;
+    justify-content: space-around;
+}
+
+span {
+    color: #808080;
+}
+
+.question-container {
+    padding: 20px 0 !important;
+}

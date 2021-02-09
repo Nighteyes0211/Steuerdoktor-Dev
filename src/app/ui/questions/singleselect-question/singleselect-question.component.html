@@ -1,0 +1,13 @@
+<mat-form-field appearance="fill" style="width: 100%; background-color: transparent; font-size: 17px ; font-family: 'poppins';">
+    <!-- The question string the user has to answer-->
+    <mat-label>{{ question.userQuestion }}</mat-label>
+
+    <!-- The option selected by the user -->
+    <mat-select [(ngModel)]="asSingleSelectAnswer(question.userAnswered).value" style="font-size: 18px; font-weight: bold;">
+
+        <!-- Loop and show all options -->
+      <mat-option *ngFor="let s of getOptions()" [value]="s">
+        {{s[0]}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>

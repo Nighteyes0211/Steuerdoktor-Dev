@@ -1,0 +1,43 @@
+<div fxFlex fxLayout="column" style="margin-left: 50px;margin-right: 50px;margin-bottom: 50px;margin-top: 50px;">
+    <div fxLayout="row">
+        <h1>Anlage ESt1A</h1>
+    </div>
+
+    <div fxLayout="column" *ngFor="let cat of est1a.categories"  fxLayoutGap="15px" style="margin-bottom: 50px;">
+        <h2>{{cat.name}}</h2>
+        <div fxLayout="row" fxLayoutGap="15px">
+            <div fxFlex="30"><h3>ID</h3></div>
+            <div fxFlex="30"><h3>Frage</h3></div>
+            <div fxFlex="30"><h3>Anmerkung</h3></div>
+        </div>
+        <div fxLayout="column" *ngFor="let g of cat.groups" fxLayoutGap="15px">
+            <div fxLayout="row" *ngFor="let q of g.GroupedQuestions" fxLayoutGap="15px">
+                <div fxFlex="30">{{q.elsterID}}</div>
+                <div fxFlex="30">{{q.userQuestion}}</div>
+                <div fxFlex="30">
+                    <div *ngIf="q.elsterID === '0101201'" style="background-color:orange">Zwei IDs möglich 0101201 + 0102602; Jahr an das Steuerjahr anpassen</div>
+                    <div *ngIf="q.elsterID === '0100301'" style="background-color:orange">Zwei IDs möglich 0100301 + 0101901</div>
+                    <div *ngIf="q.elsterID === '0100201'" style="background-color:orange">Zwei IDs möglich 0100201 + 0101801</div>
+                    <div *ngIf="q.elsterID === '0101104'" style="background-color:orange">Zwei IDs möglich 0101104 + 0103702</div>
+                    <div *ngIf="q.elsterID === '0101206'" style="background-color:orange">Zwei IDs möglich 0101206 + 0103805</div>
+                    <div *ngIf="q.elsterID === '0101207'" style="background-color:orange">Zwei IDs möglich 0101207 + 0103806</div>
+                    <div *ngIf="q.elsterID === '0100601'" style="background-color:orange">Zwei IDs möglich 0100601 + 0102502</div>
+                    <div *ngIf="q.elsterID === '0100602'" style="background-color:orange">Zwei IDs möglich 0100602 + 01012503</div>
+                    <div *ngIf="q.elsterID === '0109706'" style="background-color:orange">Drei IDs möglich 0109706 + 0109707 + 0109704; Je nach Auswahl eine der drei IDs</div>
+                    <div *ngIf="q.elsterID === '0109806'" style="background-color:orange">Drei IDs möglich 0109806 + 0109807 + 0109804; Je nach Auswahl eine der drei IDs</div>
+                    <div *ngIf="q.elsterID === '0100081'" style="background-color:orange">Fragentyp anpassen (IdNr-Question)</div>
+                    <div *ngIf="q.elsterID === '0100402'" style="background-color:orange">Optionen erweitern, bisher nur 3 Religionen</div>
+                    <div *ngIf="q.elsterID === 'ESt1A_2'" style="background-color:orange">Jahreszahl = aktuelles Steuerjahr; Regex prüfen</div>
+                    <div *ngIf="q.elsterID === '0100701'" style="background-color:orange">Je nach Auswahl andere ID; Prüf-Datum an das Steuerjahr anpassen</div>
+                    <div *ngIf="q.elsterID === '0100704'" style="background-color:orange">Infotext an das Steuerjahr anpassen</div>
+                    <div *ngIf="q.elsterID === '0100082'" style="background-color:orange">Fragentyp anpassen (IdNr-Question)</div>
+                    <div *ngIf="q.elsterID === '0101002'" style="background-color:orange">Optionen erweitern, bisher nur 3 Religionen</div>
+                    <div *ngIf="q.elsterID === '0109213'" style="background-color:orange">Jahreszahl = aktuelles Steuerjahr; Regex prüfen</div>
+                    <div *ngIf="q.elsterID === '0106103'" style="background-color:orange">Frage und Info an das Steuerjahr anpassen</div>
+                    <div *ngIf="q.elsterID === '0109411'" style="background-color:orange">Jahreszahl = aktuelles Steuerjahr; Regex prüfen</div>
+                    <div *ngIf="q.elsterID === '0106302'" style="background-color:orange">Jahreszahl = aktuelles Steuerjahr; Regex prüfen</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

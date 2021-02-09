@@ -1,0 +1,58 @@
+<section class="root">
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x logo-container">
+      <img src="assets/menue/login_logo_std.png">
+    </div>
+    <div class="grid-x grid-padding-x para-container">
+      <div class="large-12 cell">
+        <div class="callout text-center">
+          <h3>Willkommen bei Steuerdoktor</h3>
+          <p>Jetzt die Steuererklärung abgeben. Schnell, unkompliziert und kinderleicht.</p>
+        </div>
+      </div>
+    </div>
+    <form (ngSubmit)="processForm()">
+      <div class="grid-x grid-padding-x">
+        <div class="large-12 cell login-container">
+          <div class="input-container">
+            <input
+              type="email"
+              name="email" 
+              placeholder="E-Mail Adresse"
+              [(ngModel)]="email"
+              required
+              minlength="3"
+              #emailInput="ngModel"
+            />
+            <img src="assets/menue/icon_user.png">
+            <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
+              Needs to be a valid email.
+            </div>
+          </div>
+          <div class="input-container">
+            <input
+              type="password"
+              name="password" 
+              placeholder="Passwort"
+              [(ngModel)]="password"
+              required
+              #passwordInput="ngModel"
+            />
+            <img src="assets/menue/icon_locker.png">
+            <div class="help is-error" *ngIf="passwordInput.invalid && passwordInput.dirty">
+              Your password is required!
+            </div>
+          </div>
+        </div>
+        <div class="large-12 cell flex-container button-container ">
+          <a class="button" [routerLink]="['/tax']">Einloggen</a>
+          <a class="success button">Registrieren</a>
+        </div>
+        <div class="large-12 cell text-center question-container">
+          <span>Passwort vergessen?</span>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+

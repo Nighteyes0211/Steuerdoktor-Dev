@@ -1,0 +1,4 @@
+<mat-form-field appearance="fill" style="width: 100%; background-color: transparent; font-size: 17px ; font-family: 'poppins';">
+    <mat-label>{{ question.userQuestion }}</mat-label>
+    <input matInput type="date" [(ngModel)]="asDateAnswer(question.userAnswered).value">
+</mat-form-field>
